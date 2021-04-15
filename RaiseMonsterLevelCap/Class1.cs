@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace RaiseMonsterLevelCap
 {
-    [BepInPlugin("com.Moffein.RaiseMonsterLevelCap", "Raise Monster Level Cap", "1.0.2")]
+    [BepInPlugin("com.Moffein.RaiseMonsterLevelCap", "Raise Monster Level Cap", "1.0.3")]
     public class RaiseMonsterLevelCap : BaseUnityPlugin
     {
 		public static float maxLevel;
@@ -36,18 +36,6 @@ namespace RaiseMonsterLevelCap
 					Debug.Log("HP: " + self.healthComponent.health);
                 }
 			};*/
-
-			//grab intended monster level from somewhere else
-			On.RoR2.TeamManager.GetTeamLevel += (orig, self, teamIndex) =>
-			{
-				uint toReturn = orig(self, teamIndex);
-				if (teamIndex != TeamIndex.Player)
-				{
-					toReturn = (uint)Run.instance.ambientLevel;
-					//Debug.Log("\nGet Level: " + teamIndex + " - " + toReturn);
-				}
-				return toReturn;
-			};
 		}
     }
 }
