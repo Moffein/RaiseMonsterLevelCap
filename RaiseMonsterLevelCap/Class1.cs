@@ -11,7 +11,7 @@ using System.Collections.ObjectModel;
 
 namespace RaiseMonsterLevelCap
 {
-    [BepInPlugin("com.Moffein.RaiseMonsterLevelCap", "Raise Monster Level Cap", "1.0.4")]
+    [BepInPlugin("com.Moffein.RaiseMonsterLevelCap", "Raise Monster Level Cap", "1.0.5")]
     public class RaiseMonsterLevelCap : BaseUnityPlugin
     {
 		public static float maxLevel;
@@ -19,7 +19,8 @@ namespace RaiseMonsterLevelCap
         {
 			maxLevel = base.Config.Bind<float>(new ConfigDefinition("Settings", "Max Level"), 1000f, new ConfigDescription("Max level that monsters can reach. 99 is vanilla. Past a certain point in the run, monsters will level up every few seconds.")).Value;
 			float stopSound = base.Config.Bind<float>(new ConfigDefinition("Settings","Max Levelup Sound"), 300f, new ConfigDescription("Max level for the levelup sound to play. This prevents sound spam later in runs")).Value;
-			
+
+			Run.ambientLevelCap = (int)maxLevel;
 			//Remove level capping when calculating monster level
 			IL.RoR2.Run.RecalculateDifficultyCoefficentInternal += (il) =>
 			{
