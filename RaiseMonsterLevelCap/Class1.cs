@@ -11,7 +11,7 @@ using System.Collections.ObjectModel;
 
 namespace RaiseMonsterLevelCap
 {
-    [BepInPlugin("com.Moffein.RaiseMonsterLevelCap", "Raise Monster Level Cap", "1.0.5")]
+    [BepInPlugin("com.Moffein.RaiseMonsterLevelCap", "Raise Monster Level Cap", "1.0.6")]
     public class RaiseMonsterLevelCap : BaseUnityPlugin
     {
 		public static float maxLevel;
@@ -41,12 +41,4 @@ namespace RaiseMonsterLevelCap
 			};
 		}
     }
-}
-
-namespace R2API.Utils
-{
-	[AttributeUsage(AttributeTargets.Assembly)]
-	public class ManualNetworkRegistrationAttribute : Attribute
-	{
-	}
 }
