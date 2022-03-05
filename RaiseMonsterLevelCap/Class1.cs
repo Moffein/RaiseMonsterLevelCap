@@ -11,13 +11,13 @@ using System.Collections.ObjectModel;
 
 namespace RaiseMonsterLevelCap
 {
-    [BepInPlugin("com.Moffein.RaiseMonsterLevelCap", "Raise Monster Level Cap", "1.0.6")]
+    [BepInPlugin("com.Moffein.RaiseMonsterLevelCap", "Raise Monster Level Cap", "1.0.7")]
     public class RaiseMonsterLevelCap : BaseUnityPlugin
     {
 		public static float maxLevel;
         public void Awake()
         {
-			maxLevel = base.Config.Bind<float>(new ConfigDefinition("Settings", "Max Level"), 1000f, new ConfigDescription("Max level that monsters can reach. 99 is vanilla. Past a certain point in the run, monsters will level up every few seconds.")).Value;
+			maxLevel = base.Config.Bind<float>(new ConfigDefinition("Settings", "Max Level"), 9999f, new ConfigDescription("Max level that monsters can reach. 99 is Vanilla, 9999 is Simulacrum.")).Value;
 			float stopSound = base.Config.Bind<float>(new ConfigDefinition("Settings","Max Levelup Sound"), 300f, new ConfigDescription("Max level for the levelup sound to play. This prevents sound spam later in runs")).Value;
 
 			Run.ambientLevelCap = (int)maxLevel;
