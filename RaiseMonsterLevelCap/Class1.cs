@@ -9,9 +9,17 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
+namespace R2API.Utils
+{
+	[AttributeUsage(AttributeTargets.Assembly)]
+	public class ManualNetworkRegistrationAttribute : Attribute
+	{
+	}
+}
+
 namespace RaiseMonsterLevelCap
 {
-    [BepInPlugin("com.Moffein.RaiseMonsterLevelCap", "Raise Monster Level Cap", "1.0.7")]
+    [BepInPlugin("com.Moffein.RaiseMonsterLevelCap", "Raise Monster Level Cap", "1.0.8")]
     public class RaiseMonsterLevelCap : BaseUnityPlugin
     {
 		public static float maxLevel;
